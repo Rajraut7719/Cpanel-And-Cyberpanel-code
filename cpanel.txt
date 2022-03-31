@@ -1,0 +1,34 @@
+setting.py
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'newsolic_omkar1',
+        'USER': 'newsolic_omkar2',
+        'PASSWORD': 'Rajraut@123456789',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+
+pip install whitenoise
+
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
+
+
+STATIC_URL = 'static/'
+MEDIA_URL='/media/'
+STATICFILES_DIRS=[BASE_DIR/'assets']
+STATIC_ROOT='/home/pysolicitous/public_html/a/static'
+MEDIA_ROOT='/home/pysolicitous/public_html/a/media'
+
+
+urls.py
+
+from django.conf import settings
+from django.conf.urls.static import static
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
